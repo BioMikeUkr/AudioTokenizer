@@ -62,7 +62,7 @@ class SimpleAudioTokenizer:
         wavfile.write(output_file, rate, reconstructed_audio)
 
 if __name__ =="__main__":
-    tokenizer = AudioTokenizer(step=1, tensor_type=np.float16, max_freq=512*16*2, max_input_len=60*2)
+    tokenizer = SimpleAudioTokenizer(step=1, tensor_type=np.float16, max_freq=512*16*2, max_input_len=60*2)
     frequency_data, sample_rate = tokenizer.tokenize('audio_data/input_2.wav')
     print(frequency_data)
     tokenizer.detokenize(frequency_data, sample_rate, 'reconstructed_audio.wav')
